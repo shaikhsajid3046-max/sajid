@@ -1,0 +1,88 @@
+/* ─── Button text swap ─────────────────────────── */
+.swap-btn {
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+}
+
+.swap-btn__text {
+  display: block;
+  transition: transform 0.3s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.swap-btn__clone {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  display: block;
+  transition: transform 0.3s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.swap-btn:hover .swap-btn__text {
+  transform: translateY(-100%);
+}
+
+.swap-btn:hover .swap-btn__clone {
+  transform: translateY(-100%);
+}
+
+/* ─── Marquee ──────────────────────────────────── */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 20s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+/* ─── Cycling text ─────────────────────────────── */
+@keyframes cycleIn {
+  from { transform: translateY(100%); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+@keyframes cycleOut {
+  from { transform: translateY(0);    opacity: 1; }
+  to   { transform: translateY(-100%); opacity: 0; }
+}
+
+.cycle-word {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+}
+
+/* ─── Project card image zoom ──────────────────── */
+.project-card__image {
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.project-card:hover .project-card__image {
+  transform: scale(1.04);
+}
+
+/* ─── Nav backdrop blur ────────────────────────── */
+.nav-scrolled {
+  background-color: rgba(8, 8, 8, 0.8) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* ─── Section number pattern ───────────────────── */
+.section-label {
+  font-family: var(--font-body);
+  font-size: var(--text-label);
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
