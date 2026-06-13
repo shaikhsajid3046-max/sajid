@@ -1,3 +1,24 @@
+/* ─── Selected Work — mobile fallback ─────────── */
+@media (max-width: 1023px) {
+  .selected-work-section {
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  .selected-work-track {
+    flex-direction: column !important;
+    width: 100% !important;
+    height: auto !important;
+    padding-bottom: 0 !important;
+  }
+
+  .selected-work-card {
+    width: 100% !important;
+    aspect-ratio: 16 / 9;
+    position: relative;
+  }
+}
+
 /* ─── Button text swap ─────────────────────────── */
 .swap-btn {
   position: relative;
