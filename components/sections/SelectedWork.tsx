@@ -16,6 +16,7 @@ interface SelectedWorkProps {
 export function SelectedWork({ projects }: SelectedWorkProps) {
   const sectionRef = useRef<HTMLElement>(null)
   const trackRef = useRef<HTMLDivElement>(null)
+  const spacerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     registerGsapPlugins()
@@ -34,7 +35,8 @@ export function SelectedWork({ projects }: SelectedWorkProps) {
 
       ScrollTrigger.create({
         trigger: sectionRef.current,
-        pin: true,
+        pin: sectionRef.current,
+        pinSpacer: spacerRef.current,
         scrub: 1.2,
         start: 'top top',
         end: () => `+=${track.scrollWidth - window.innerWidth}`,
@@ -48,7 +50,7 @@ export function SelectedWork({ projects }: SelectedWorkProps) {
   }, [])
 
   return (
-    <div className="selected-work-wrapper">
+    <div ref={spacerRef} className="selected-work-spacer">
       <section
         ref={sectionRef}
         className="selected-work-section"
