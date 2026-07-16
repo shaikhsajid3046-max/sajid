@@ -12,9 +12,10 @@ export function WebGLHero() {
 
     let animId: number
     let cleanupFn: (() => void) | undefined
+    let isUnmounted = false
 
     import('three').then((THREE) => {
-      if (!mountRef.current) return
+      if (isUnmounted || !mountRef.current) return
 
       const w = el.clientWidth
       const h = el.clientHeight
@@ -260,7 +261,10 @@ export function WebGLHero() {
       }
     })
 
-    return () => cleanupFn?.()
+    return () => {
+      isUnmounted = true
+      cleanupFn?.()
+    }
   }, [])
 
   return (

@@ -48,11 +48,12 @@ export function SelectedWork({ projects }: SelectedWorkProps) {
   }, [])
 
   return (
-    <section
-      ref={sectionRef}
-      className="selected-work-section"
-      style={{ height: '100vh', overflow: 'hidden' }}
-    >
+    <div className="selected-work-wrapper">
+      <section
+        ref={sectionRef}
+        className="selected-work-section"
+        style={{ height: '100vh', overflow: 'hidden' }}
+      >
       {/* Header row */}
       <div
         className="flex items-baseline justify-between"
@@ -163,6 +164,7 @@ export function SelectedWork({ projects }: SelectedWorkProps) {
           )
         })}
       </div>
-    </section>
+      </section>
+    </div>
   )
 }

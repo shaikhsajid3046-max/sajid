@@ -4,6 +4,37 @@ All modifications to the Sajid Shaikh portfolio site are recorded here.
 
 ---
 
+## [2026-07-16] Round 7: SplitText Child Extraction & Hydration Polish
+
+### Summary
+Resolved a client-side navigation exception caused by React attempting to track mutated child nodes in `SplitText` when `children` is an array or nested react nodes.
+
+---
+
+### Files Modified
+
+| # | File | Change Type | Description |
+|---|------|-------------|-------------|
+| 1 | `components/ui/SplitText.tsx` | MODIFIED | Implemented a recursive `getTextFromChildren` helper to extract plain strings from any React children setup, and changed the rendering behavior to always write via `dangerouslySetInnerHTML`. This stops React from tracking DOM nodes, eliminating unmount crashes during routing. |
+
+---
+
+## [2026-07-16] Round 6: Pinning Route Transition Crash & WebGL Leaks
+
+### Summary
+Fixed a critical routing error (`NotFoundError: Failed to execute 'removeChild' on 'Node'`) during unmounts of pinned elements, and resolved asynchronous mount/unmount memory leaks in the Three.js Canvas.
+
+---
+
+### Files Modified
+
+| # | File | Change Type | Description |
+|---|------|-------------|-------------|
+| 1 | `components/sections/SelectedWork.tsx` | MODIFIED | Wrapped the pinned `<section>` in a static `selected-work-wrapper` div container so React can cleanly remove the wrapper without crashing over DOM elements relocated inside the ScrollTrigger pin-spacer wrapper. |
+| 2 | `components/ui/WebGLHero.tsx` | MODIFIED | Tracked an `isUnmounted` flag in the async Three.js load thread to cancel WebGL instantiation if the route changes before dependencies load, preventing memory leaks and DOM conflicts. |
+
+---
+
 ## [2026-07-16] Round 5: Tool Logos & Tooltips
 
 ### Summary

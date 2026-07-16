@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef, useEffect, ReactNode } from 'react'
+import { useRef, useEffect, ReactNode, Children, isValidElement } from 'react'
 import { gsap, ScrollTrigger, registerGsapPlugins } from '@/lib/gsap/gsapConfig'
 
 interface SplitTextProps {
@@ -10,6 +10,19 @@ interface SplitTextProps {
   style?: React.CSSProperties
   delay?: number
   once?: boolean
+}
+
+/** Recursively extracts plain text from React children to avoid child-node tracking conflicts */
+function getTextFromChildren(children: ReactNode): string {
+  let text = ''
+  Children.forEach(children, (child) => {
+    if (typeof child === 'string' || typeof child === 'number') {
+      text += child
+    } else if (isValidElement(child) && child.props && 'children' in child.props) {
+      text += getTextFromChildren(child.props.children as ReactNode)
+    }
+  })
+  return text
 }
 
 export function SplitText({
@@ -93,22 +106,15 @@ export function SplitText({
     }
   }, [delay, once])
 
-  const textContent = typeof children === 'string' || typeof children === 'number'
-    ? String(children)
-    : ''
-
+  const textContent = getTextFromChildren(children)
   const CustomTag = Tag as any
 
-  if (textContent) {
-    return (
-      <CustomTag
-        ref={containerRef}
-        className={className}
-        style={style}
-        dangerouslySetInnerHTML={{ __html: textContent }}
-      />
-    )
-  }
-
-  return <CustomTag ref={containerRef} className={className} style={style}>{children}</CustomTag>
+  return (
+    <CustomTag
+      ref={containerRef}
+      className={className}
+      style={style}
+      dangerouslySetInnerHTML={{ __html: textContent }}
+    />
+  )
 }
