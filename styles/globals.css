@@ -18,23 +18,23 @@
   --font-display: 'Editorial New', 'Playfair Display', Georgia, serif;
   --font-body: 'Neue Montreal', 'Inter', system-ui, sans-serif;
 
-  --text-xl: clamp(96px, 12vw, 180px);
-  --text-lg: clamp(64px, 7vw, 120px);
-  --text-md: clamp(40px, 4.5vw, 72px);
-  --text-body-xl: 24px;
-  --text-body-lg: 18px;
-  --text-body-sm: 14px;
-  --text-label: 11px;
+  --text-xl: clamp(56px, 12vw, 180px);
+  --text-lg: clamp(40px, 7vw, 120px);
+  --text-md: clamp(28px, 4.5vw, 72px);
+  --text-body-xl: clamp(18px, 2.5vw, 24px);
+  --text-body-lg: clamp(15px, 1.8vw, 18px);
+  --text-body-sm: clamp(13px, 1.4vw, 14px);
+  --text-label: clamp(10px, 1.1vw, 11px);
 
   /* Spacing */
   --space-xs: 8px;
   --space-sm: 16px;
   --space-md: 32px;
-  --space-lg: 64px;
-  --space-xl: 120px;
-  --space-section: min(20vh, 180px);
-  --margin-page: clamp(20px, 5vw, 100px);
-  --nav-height: 64px;
+  --space-lg: clamp(32px, 6vw, 64px);
+  --space-xl: clamp(60px, 10vw, 120px);
+  --space-section: clamp(60px, 15vh, 180px);
+  --margin-page: clamp(16px, 5vw, 100px);
+  --nav-height: clamp(56px, 8vw, 64px);
 
   /* Easing */
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
@@ -66,11 +66,14 @@ html {
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 body {
   background-color: var(--black);
   overflow-x: hidden;
+  min-height: 100dvh;
 }
 
 /* ─── Typography base ──────────────────────────── */
@@ -78,16 +81,20 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
   font-weight: 300;
   color: var(--white);
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 p {
   color: var(--white);
   font-family: var(--font-body);
+  overflow-wrap: break-word;
 }
 
 a {
   color: inherit;
   text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 /* ─── Selection ────────────────────────────────── */
@@ -181,12 +188,111 @@ img {
   border-radius: 0;
   display: block;
   max-width: 100%;
+  height: auto;
 }
 
 /* ─── Focus rings ──────────────────────────────── */
 :focus-visible {
   outline: 1px solid var(--accent);
   outline-offset: 4px;
+}
+
+/* ─── Touch targets ────────────────────────────── */
+@media (pointer: coarse) {
+  button,
+  a,
+  [role="tab"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* ─── Dot icon indicator ───────────────────────── */
+.dot-icon {
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: var(--accent);
+  flex-shrink: 0;
+}
+
+.dot-icon--muted {
+  background-color: var(--muted);
+}
+
+.dot-icon--sm {
+  width: 3px;
+  height: 3px;
+}
+
+.dot-icon--lg {
+  width: 6px;
+  height: 6px;
+}
+
+/* ─── Project count badge ──────────────────────── */
+.project-count-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-body);
+  font-size: var(--text-label);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: 6px 14px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+/* ─── Arrow icon (inline SVG wrapper) ──────────── */
+.arrow-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.arrow-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* ─── Active nav dot indicator ─────────────────── */
+.nav-active-dot {
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background-color: var(--accent);
+}
+
+/* ─── Hide scrollbar helper ────────────────────── */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ─── Mobile responsive utilities ──────────────── */
+@media (max-width: 480px) {
+  .text-display-xl {
+    line-height: 0.92;
+  }
+
+  .text-display-lg {
+    line-height: 1.0;
+  }
 }
 
 /* ─── Reduced motion ───────────────────────────── */

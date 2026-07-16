@@ -73,7 +73,7 @@ export function PreloaderProvider({ children }: { children: React.ReactNode }) {
     }
   }, [])
 
-  const NAME = 'SAJID SHEIKH'
+  const NAME = 'SAJID SHAIKH'
 
   return (
     <PreloaderContext.Provider value={{ isLoading }}>

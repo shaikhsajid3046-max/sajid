@@ -7,16 +7,22 @@ import { gsap, registerGsapPlugins } from '@/lib/gsap/gsapConfig'
 const NAV_LINKS = [
   { href: '/', label: 'Home' },
   { href: '/work', label: 'Work' },
-  { href: '/about', label: 'About' },
-  { href: '#contact', label: 'Contact' },
+  { href: '/contact', label: 'Contact' },
 ]
+
+interface SocialUrls {
+  instagramUrl?: string
+  behanceUrl?: string
+  linkedinUrl?: string
+}
 
 interface MenuOverlayProps {
   open: boolean
   onClose: () => void
+  socialUrls?: SocialUrls
 }
 
-export function MenuOverlay({ open, onClose }: MenuOverlayProps) {
+export function MenuOverlay({ open, onClose, socialUrls }: MenuOverlayProps) {
   const overlayRef = useRef<HTMLDivElement>(null)
   const linksRef = useRef<HTMLUListElement>(null)
 
@@ -56,6 +62,12 @@ export function MenuOverlay({ open, onClose }: MenuOverlayProps) {
     }
   }, [open])
 
+  const socials = [
+    { label: 'Instagram', url: socialUrls?.instagramUrl ?? 'https://instagram.com' },
+    { label: 'Behance', url: socialUrls?.behanceUrl ?? 'https://behance.net' },
+    { label: 'LinkedIn', url: socialUrls?.linkedinUrl ?? 'https://linkedin.com' },
+  ]
+
   return (
     <div
       ref={overlayRef}
@@ -70,10 +82,23 @@ export function MenuOverlay({ open, onClose }: MenuOverlayProps) {
         <button
           onClick={onClose}
           aria-label="Close menu"
-          className="text-label"
+          className="text-label flex items-center justify-center gap-2 h-11 px-4 rounded-full transition-colors hover:bg-white/5 active:bg-white/10"
           style={{ color: 'var(--white)' }}
         >
-          Close ✕
+          <span>Close</span>
+          <svg
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
         </button>
       </div>
 
@@ -95,9 +120,17 @@ export function MenuOverlay({ open, onClose }: MenuOverlayProps) {
 
       {/* Social */}
       <div className="flex gap-6">
-        {['Instagram', 'Behance', 'LinkedIn'].map((s) => (
-          <a key={s} href="#" className="text-label" style={{ color: 'var(--muted)' }}>
-            {s}
+        {socials.map(({ label, url }) => (
+          <a
+            key={label}
+            href={url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-label swap-btn"
+            style={{ color: 'var(--muted)' }}
+          >
+            <span className="swap-btn__text">{label}</span>
+            <span className="swap-btn__clone" aria-hidden="true">{label}</span>
           </a>
         ))}
       </div>

@@ -14,6 +14,27 @@ interface ProjectCardProps {
   index: number
 }
 
+/** Inline SVG arrow icon pointing right */
+function ArrowRight() {
+  return (
+    <span className="arrow-slide-icon">
+      <svg
+        width="14"
+        height="14"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <line x1="5" y1="12" x2="19" y2="12" />
+        <polyline points="12 5 19 12 12 19" />
+      </svg>
+    </span>
+  )
+}
+
 export function ProjectCard({ project, index }: ProjectCardProps) {
   const cardRef = useRef<HTMLDivElement>(null)
   const coverSrc = getProjectCoverUrl(project, 1600)
@@ -73,16 +94,17 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
               </div>
             )}
 
-            {/* Discipline tag */}
+            {/* Discipline tag with dot icon */}
             <div className="absolute top-4 left-4" style={{ transform: 'translateZ(30px)' }}>
               <span
-                className="text-label px-2 py-1"
+                className="text-label px-2 py-1 inline-flex items-center gap-1.5"
                 style={{
                   backgroundColor: 'rgba(8,8,8,0.72)',
                   color: 'var(--accent)',
                   backdropFilter: 'blur(4px)',
                 }}
               >
+                <span className="dot-icon dot-icon--sm" />
                 {project.discipline[0]
                   ? (DISCIPLINE_LABELS[project.discipline[0]] ?? project.discipline[0])
                   : ''}
@@ -97,17 +119,28 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
             </div>
           </div>
 
-          {/* Title — lifts in on hover */}
-          <div className="mt-4 overflow-hidden" style={{ transform: 'translateZ(10px)' }}>
-            <h3
-              className="font-display translate-y-1 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100"
-              style={{
-                fontSize: 'clamp(18px, 2vw, 28px)',
-                color: 'var(--white)',
-              }}
-            >
-              {project.title}
-            </h3>
+          {/* Title and meta -- always visible */}
+          <div className="mt-4 flex items-start justify-between" style={{ transform: 'translateZ(10px)' }}>
+            <div>
+              <h3
+                className="font-display flex items-center gap-2 transition-colors duration-300 group-hover:text-[var(--accent)]"
+                style={{
+                  fontSize: 'clamp(18px, 2vw, 28px)',
+                  color: 'var(--white)',
+                }}
+              >
+                {project.title}
+                <ArrowRight />
+              </h3>
+              {project.client && (
+                <p
+                  className="text-body-sm mt-1"
+                  style={{ color: 'var(--muted)' }}
+                >
+                  {project.client}
+                </p>
+              )}
+            </div>
           </div>
 
         </Link>

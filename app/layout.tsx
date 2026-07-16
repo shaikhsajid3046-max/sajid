@@ -13,17 +13,17 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://sajidsheikh.com'),
+  metadataBase: new URL('https://sajidshaikh.com'),
   title: {
-    default: 'Sajid Sheikh — Designer & Creative',
-    template: '%s | Sajid Sheikh',
+    default: 'Sajid Shaikh | Designer & Creative',
+    template: '%s | Sajid Shaikh',
   },
   description:
     'Graphic designer, UI/UX designer, video editor, and creative director based in the region.',
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    siteName: 'Sajid Sheikh',
+    siteName: 'Sajid Shaikh',
     images: [{ url: '/og-default.jpg', width: 1200, height: 630 }],
   },
   twitter: { card: 'summary_large_image' },
@@ -39,9 +39,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             __html: JSON.stringify({
               '@context': 'https://schema.org',
               '@type': 'Person',
-              name: 'Sajid Sheikh',
+              name: 'Sajid Shaikh',
               jobTitle: 'Designer & Creative',
-              url: 'https://sajidsheikh.com',
+              url: 'https://sajidshaikh.com',
             }),
           }}
         />

@@ -51,7 +51,7 @@ export function FooterCTA({ email }: FooterCTAProps) {
       <Magnetic strength={0.2}>
         <a
           href={`mailto:${email}`}
-          className="text-body-xl transition-colors duration-300 hover:opacity-70"
+          className="text-body-xl transition-colors duration-300 hover:opacity-70 break-all"
           style={{ color: 'var(--white)', textDecoration: 'underline', textUnderlineOffset: '6px' }}
           data-cursor="Mail"
         >

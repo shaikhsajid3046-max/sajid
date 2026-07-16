@@ -48,6 +48,7 @@ export interface Project {
   featuredOrder?: number
   credits?: string
   seoDescription?: string
+  tools?: string[]
 }
 
 export interface SiteSettings {

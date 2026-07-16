@@ -9,7 +9,7 @@ export async function getAllProjects(): Promise<Project[]> {
     `*[_type == "project"] | order(year desc) {
       _id, title, slug, year, discipline, client,
       coverImage, heroVideoUrl, overview, gallery,
-      featured, featuredOrder, credits, seoDescription
+      featured, featuredOrder, credits, seoDescription, tools
     }`
   )
 }
@@ -21,7 +21,7 @@ export async function getFeaturedProjects(): Promise<Project[]> {
     `*[_type == "project" && featured == true] | order(featuredOrder asc) {
       _id, title, slug, year, discipline, client,
       coverImage, heroVideoUrl, overview, gallery,
-      featured, featuredOrder
+      featured, featuredOrder, tools
     }`
   )
 }
@@ -35,7 +35,7 @@ export async function getProject(slug: string): Promise<Project | null> {
     `*[_type == "project" && slug.current == $slug][0] {
       _id, title, slug, year, discipline, client,
       coverImage, heroVideoUrl, overview, gallery,
-      featured, featuredOrder, credits, seoDescription
+      featured, featuredOrder, credits, seoDescription, tools
     }`,
     { slug }
   )

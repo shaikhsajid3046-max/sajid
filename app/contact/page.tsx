@@ -6,12 +6,12 @@ import { Magnetic } from '@/components/ui/Magnetic'
 
 export const metadata: Metadata = {
   title: 'Contact',
-  description: 'Get in touch with Sajid Sheikh for design projects and collaborations.',
+  description: 'Get in touch with Sajid Shaikh for design projects and collaborations.',
 }
 
 export default async function ContactPage() {
   const settings = await getSiteSettings()
-  const email = settings.email ?? 'hello@sajidsheikh.com'
+  const email = settings.email ?? 'shaikhsajid3046@gmail.com'
 
   return (
     <>
@@ -30,7 +30,7 @@ export default async function ContactPage() {
         <Magnetic strength={0.2}>
           <a
             href={`mailto:${email}`}
-            className="text-body-xl block mb-16 transition-opacity hover:opacity-60"
+            className="text-body-xl block mb-16 transition-opacity hover:opacity-60 break-all"
             style={{
               color: 'var(--white)',
               textDecoration: 'underline',
@@ -43,7 +43,7 @@ export default async function ContactPage() {
         </Magnetic>
 
         {/* Social links */}
-        <div className="flex gap-8">
+        <div className="flex flex-wrap gap-x-8 gap-y-4">
           {settings.instagramUrl && (
             <a
               href={settings.instagramUrl}

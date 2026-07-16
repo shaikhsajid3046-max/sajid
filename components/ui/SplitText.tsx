@@ -93,6 +93,22 @@ export function SplitText({
     }
   }, [delay, once])
 
-  // @ts-expect-error – dynamic tag
-  return <Tag ref={containerRef} className={className} style={style}>{children}</Tag>
+  const textContent = typeof children === 'string' || typeof children === 'number'
+    ? String(children)
+    : ''
+
+  const CustomTag = Tag as any
+
+  if (textContent) {
+    return (
+      <CustomTag
+        ref={containerRef}
+        className={className}
+        style={style}
+        dangerouslySetInnerHTML={{ __html: textContent }}
+      />
+    )
+  }
+
+  return <CustomTag ref={containerRef} className={className} style={style}>{children}</CustomTag>
 }

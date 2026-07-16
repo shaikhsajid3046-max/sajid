@@ -1,38 +1,44 @@
 import type { Metadata } from 'next'
-import { getAllProjects, getSiteSettings } from '@/lib/sanity/queries'
+import { getAllProjects, getFeaturedProjects, getSiteSettings } from '@/lib/sanity/queries'
+import { WorkPageHeader } from '@/components/sections/WorkPageHeader'
+import { SelectedWork } from '@/components/sections/SelectedWork'
 import { ProjectGrid } from '@/components/project/ProjectGrid'
 import { Footer } from '@/components/layout/Footer'
-import { SplitText } from '@/components/ui/SplitText'
 
 export const metadata: Metadata = {
-  title: 'Work',
-  description: 'Full portfolio of graphic design, UI/UX, video editing, motion design, and brand identity work by Sajid Sheikh.',
+  title: 'Works',
+  description: 'Full portfolio of graphic design, UI/UX, video editing, motion design, and brand identity work by Sajid Shaikh.',
 }
 
 export default async function WorkPage() {
-  const [projects, settings] = await Promise.all([
+  const [allProjects, featuredProjects, settings] = await Promise.all([
     getAllProjects(),
+    getFeaturedProjects(),
     getSiteSettings(),
   ])
 
   return (
     <>
       {/* Header */}
-      <section
-        className="pt-40 pb-16"
-        style={{ padding: 'calc(var(--nav-height) + 80px) var(--margin-page) 64px' }}
-      >
-        <div className="flex items-baseline gap-8 mb-4">
-          <span className="section-label">All Work</span>
-        </div>
-        <SplitText as="h1" className="text-display-lg font-display">
-          Projects
-        </SplitText>
-      </section>
+      <WorkPageHeader projectCount={allProjects.length} />
 
-      {/* Grid */}
-      <section style={{ padding: '0 var(--margin-page)' }}>
-        <ProjectGrid projects={projects} />
+      {/* Featured / Selected Work (horizontal scroll) */}
+      {featuredProjects.length > 0 && (
+        <div className="mt-8">
+          <SelectedWork projects={featuredProjects} />
+        </div>
+      )}
+
+      {/* All projects grid */}
+      <section
+        className="mt-16"
+        style={{ padding: '0 var(--margin-page)' }}
+      >
+        <div className="flex items-center gap-3 mb-8">
+          <span className="dot-icon" />
+          <span className="section-label">All Projects</span>
+        </div>
+        <ProjectGrid projects={allProjects} />
       </section>
 
       <div className="mt-24">

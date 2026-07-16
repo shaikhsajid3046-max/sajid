@@ -107,3 +107,89 @@
   text-transform: uppercase;
   color: var(--muted);
 }
+
+/* ─── Filter underline (active state) ──────────── */
+.filter-underline {
+  position: relative;
+}
+
+.filter-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  width: 0;
+  height: 1px;
+  background-color: var(--accent);
+  transition: width 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              left 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.filter-underline[data-active='true']::after {
+  width: 100%;
+  left: 0;
+}
+
+.filter-underline:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+/* ─── Arrow slide icon (card hover) ────────────── */
+.arrow-slide-icon {
+  display: inline-flex;
+  align-items: center;
+  overflow: hidden;
+  width: 0;
+  opacity: 0;
+  transition: width 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateX(-8px);
+}
+
+.group:hover .arrow-slide-icon {
+  width: 20px;
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ─── Gradient divider ─────────────────────────── */
+.gradient-divider {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--border) 15%,
+    var(--muted) 50%,
+    var(--border) 85%,
+    transparent 100%
+  );
+  opacity: 0.5;
+}
+
+/* ─── Card stagger fade-in ─────────────────────── */
+@keyframes cardFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card-fade-in {
+  animation: cardFadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* ─── Filter transition ────────────────────────── */
+.filter-grid-enter {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.filter-grid-exit {
+  opacity: 0;
+  transform: translateY(8px);
+}
