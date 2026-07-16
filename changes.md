@@ -4,6 +4,21 @@ All modifications to the Sajid Shaikh portfolio site are recorded here.
 
 ---
 
+## [2026-07-16] Round 8: ScrollTrigger Custom pinSpacer Optimization
+
+### Summary
+Fixed the client-side routing crash (`NotFoundError: Failed to execute 'removeChild' on 'Node'`) on navigation away from pinned elements by configuring a custom static `pinSpacer` element, avoiding dynamic wrapping.
+
+---
+
+### Files Modified
+
+| # | File | Change Type | Description |
+|---|------|-------------|-------------|
+| 1 | `components/sections/SelectedWork.tsx` | MODIFIED | Implemented `spacerRef` and set `pinSpacer: spacerRef.current` inside the ScrollTrigger config, instructing GSAP to use the existing static container instead of wrapping elements dynamically. |
+
+---
+
 ## [2026-07-16] Round 7: SplitText Child Extraction & Hydration Polish
 
 ### Summary
