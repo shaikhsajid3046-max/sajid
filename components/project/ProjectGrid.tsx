@@ -7,10 +7,8 @@ import type { Project, Discipline } from '@/types/project'
 const FILTERS: { label: string; value: Discipline | 'all' }[] = [
   { label: 'All', value: 'all' },
   { label: 'Graphic', value: 'graphic' },
-  { label: 'UI/UX', value: 'uiux' },
-  { label: 'Video', value: 'video' },
-  { label: 'Motion', value: 'motion' },
   { label: 'Brand', value: 'brand' },
+  { label: 'Video', value: 'video' },
 ]
 
 interface ProjectGridProps {

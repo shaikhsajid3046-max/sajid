@@ -6,7 +6,6 @@ import { useRef, useEffect } from 'react'
 import { gsap, ScrollTrigger, registerGsapPlugins } from '@/lib/gsap/gsapConfig'
 import { SplitText } from '@/components/ui/SplitText'
 import { DISCIPLINE_LABELS } from '@/types/project'
-import { getProjectCoverUrl, projectHasCover } from '@/lib/sanity/image'
 import type { Project } from '@/types/project'
 
 interface SelectedWorkProps {
@@ -88,8 +87,8 @@ export function SelectedWork({ projects }: SelectedWorkProps) {
         }}
       >
         {projects.map((project, i) => {
-          const coverSrc = getProjectCoverUrl(project, 1600)
-          const hasCover = projectHasCover(project)
+          const coverSrc = project.coverImageUrl
+          const hasCover = Boolean(project.coverImageUrl)
 
           return (
             <Link

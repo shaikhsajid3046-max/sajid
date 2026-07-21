@@ -193,3 +193,56 @@
   opacity: 0;
   transform: translateY(8px);
 }
+
+/* ─── Assets grid ──────────────────────────────── */
+.assets-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+@media (max-width: 1024px) {
+  .assets-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .assets-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.asset-card__media {
+  aspect-ratio: 4 / 3;
+  background-color: var(--surface);
+  position: relative;
+}
+
+/* ─── Assets lightbox nav buttons ──────────────── */
+.assets-nav-btn {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid rgba(240, 237, 232, 0.12);
+  background-color: rgba(8, 8, 8, 0.5);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: var(--white);
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+  z-index: 510;
+}
+
+.assets-nav-btn:hover {
+  background-color: rgba(240, 237, 232, 0.06);
+  border-color: rgba(240, 237, 232, 0.25);
+  transform: translateY(-50%) scale(1.06);
+}
+
+.assets-nav-btn:active {
+  transform: translateY(-50%) scale(0.96);
+}

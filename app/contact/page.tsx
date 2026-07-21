@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { getSiteSettings } from '@/lib/sanity/queries'
+import { getSiteSettings } from '@/lib/data/queries'
 import { Footer } from '@/components/layout/Footer'
 import { SplitText } from '@/components/ui/SplitText'
 import { Magnetic } from '@/components/ui/Magnetic'

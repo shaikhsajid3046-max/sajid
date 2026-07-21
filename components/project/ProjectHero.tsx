@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import { getProjectCoverUrl, projectHasCover } from '@/lib/sanity/image'
 import type { Project } from '@/types/project'
 
 interface ProjectHeroProps {
@@ -7,8 +6,8 @@ interface ProjectHeroProps {
 }
 
 export function ProjectHero({ project }: ProjectHeroProps) {
-  const hasCover = projectHasCover(project)
-  const coverSrc = getProjectCoverUrl(project, 2400)
+  const hasCover = Boolean(project.coverImageUrl)
+  const coverSrc = project.coverImageUrl
 
   return (
     <div className="relative w-full" style={{ aspectRatio: '16/9', maxHeight: '90vh' }}>

@@ -1,15 +1,5 @@
-export interface SanityImage {
-  _type: 'image'
-  asset: {
-    _ref: string
-    _type: 'reference'
-  }
-  hotspot?: {
-    x: number
-    y: number
-    height: number
-    width: number
-  }
+export interface ImageAsset {
+  src: string
   alt?: string
 }
 
@@ -39,11 +29,10 @@ export interface Project {
   year: number
   discipline: Discipline[]
   client?: string
-  coverImage: SanityImage
-  coverImageUrl?: string   // External URL used for mock/dev; Sanity image takes over in production
+  coverImageUrl: string   // Direct local or external image URL
   heroVideoUrl?: string
   overview: string
-  gallery: SanityImage[]
+  gallery: string[]       // Direct array of image URLs
   featured: boolean
   featuredOrder?: number
   credits?: string
@@ -53,12 +42,12 @@ export interface Project {
 
 export interface SiteSettings {
   heroPhilosophy?: string
-  aboutBio?: unknown[]
-  portraitImage?: SanityImage
-  cvFile?: { asset: { url: string } }
+  aboutBio?: string       // Direct text bio
+  portraitImageUrl?: string
+  cvFileUrl?: string
   email?: string
   instagramUrl?: string
   behanceUrl?: string
   linkedinUrl?: string
-  clientLogos?: { name: string; logo: SanityImage }[]
+  clientLogos?: { name: string; logoUrl: string }[]
 }

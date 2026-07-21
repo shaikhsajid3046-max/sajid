@@ -4,7 +4,7 @@ import { Services } from '@/components/sections/Services'
 import { Recognition } from '@/components/sections/Recognition'
 import { Footer } from '@/components/layout/Footer'
 import { SplitText } from '@/components/ui/SplitText'
-import { getFeaturedProjects, getSiteSettings } from '@/lib/sanity/queries'
+import { getFeaturedProjects, getSiteSettings } from '@/lib/data/queries'
 
 export default async function Home() {
   const [projects, settings] = await Promise.all([

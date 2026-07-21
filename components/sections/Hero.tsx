@@ -120,14 +120,14 @@ export function Hero({ philosophy }: HeroProps) {
               transformStyle: 'preserve-3d',
             }}
           >
-            Sajid
+            SAJID
           </span>
           <span
             ref={secondLineRef}
             className="block will-change-transform"
             style={{ transformStyle: 'preserve-3d' }}
           >
-            Sheikh
+            SHAIKH
           </span>
         </h1>
 

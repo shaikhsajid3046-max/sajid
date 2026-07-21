@@ -1,10 +1,8 @@
 import { MarqueeRow } from '@/components/ui/MarqueeRow'
 import Image from 'next/image'
-import { urlForImageString } from '@/lib/sanity/image'
-import type { SanityImage } from '@/types/project'
 
 interface RecognitionProps {
-  logos?: { name: string; logo: SanityImage }[]
+  logos?: { name: string; logoUrl: string }[]
 }
 
 export function Recognition({ logos }: RecognitionProps) {
@@ -12,7 +10,7 @@ export function Recognition({ logos }: RecognitionProps) {
 
   const items = logos.map((l) => ({
     name: l.name,
-    src: urlForImageString(l.logo, 200),
+    src: l.logoUrl,
   }))
 
   return (
@@ -31,13 +29,14 @@ export function Recognition({ logos }: RecognitionProps) {
             className="mx-12 flex items-center"
             style={{ filter: 'grayscale(1)', opacity: 0.5 }}
           >
-            {item.src !== '/images/placeholder.jpg' ? (
+            {item.src ? (
               <Image
                 src={item.src}
                 alt={item.name}
                 width={120}
                 height={40}
                 className="object-contain"
+                unoptimized
               />
             ) : (
               <span className="text-label whitespace-nowrap" style={{ color: 'var(--muted)' }}>

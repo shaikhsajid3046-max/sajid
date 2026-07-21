@@ -5,7 +5,7 @@ export const runtime = 'edge'
 
 export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url)
-  const title = searchParams.get('title') ?? 'Sajid Sheikh'
+  const title = searchParams.get('title') ?? 'Sajid Shaikh'
   const subtitle = searchParams.get('subtitle') ?? 'Designer & Creative'
 
   return new ImageResponse(
@@ -55,7 +55,7 @@ export async function GET(req: NextRequest) {
             textTransform: 'uppercase',
           }}
         >
-          sajidsheikh.com
+          sajidshaikh.com
         </div>
       </div>
     ),

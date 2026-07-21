@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
-import { getProject, getAllProjects, getSiteSettings } from '@/lib/sanity/queries'
+import { getProject, getAllProjects, getSiteSettings } from '@/lib/data/queries'
 import { ProjectHero } from '@/components/project/ProjectHero'
 import { ProjectGallery } from '@/components/project/ProjectGallery'
 import { Footer } from '@/components/layout/Footer'
