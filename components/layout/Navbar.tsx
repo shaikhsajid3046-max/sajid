@@ -46,8 +46,8 @@ export function Navbar() {
           </Link>
 
           {/* CTA */}
-          <Link
-            href="/contact"
+          <a
+            href="mailto:shaikhsajid3046@gmail.com"
             className="swap-btn text-label hidden md:flex items-center rounded-full px-5 py-2 relative"
             style={{ border: '1px solid var(--border)' }}
           >
@@ -85,8 +85,7 @@ export function Navbar() {
                 <polyline points="12 5 19 12 12 19" />
               </svg>
             </span>
-            {isActive('/contact') && <span className="nav-active-dot" />}
-          </Link>
+          </a>
 
           {/* Hamburger */}
           <button

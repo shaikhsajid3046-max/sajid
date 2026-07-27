@@ -221,11 +221,55 @@ export default async function ProjectPage({ params }: Props) {
             >
               {project.title}
             </h1>
-            <p className="text-label" style={{ color: 'var(--muted)' }}>
-              {project.discipline.map((d) => DISCIPLINE_LABELS[d] ?? d).join(' / ')}
-              {' / '}
-              {project.year}
-            </p>
+            <div className="flex items-center gap-3 flex-wrap">
+              {/* Software badge */}
+              {project.tools && project.tools.length > 0 && (() => {
+                const tool = project.tools![0]
+                const norm = tool.toLowerCase()
+                const badgeMap: Record<string, { color: string; icon: string }> = {
+                  'adobe photoshop':    { color: '#31A8FF', icon: 'Ps' },
+                  'adobe illustrator':  { color: '#FF9A00', icon: 'Ai' },
+                  'adobe premiere pro': { color: '#9999FF', icon: 'Pr' },
+                  'adobe after effects':{ color: '#CF96FD', icon: 'Ae' },
+                }
+                const meta = badgeMap[norm]
+                if (!meta) return null
+                return (
+                  <span
+                    className="text-label inline-flex items-center gap-1.5 px-2 py-1"
+                    style={{
+                      backgroundColor: `${meta.color}15`,
+                      border: `1px solid ${meta.color}30`,
+                    }}
+                  >
+                    <span
+                      style={{
+                        backgroundColor: meta.color,
+                        color: '#000',
+                        fontWeight: 700,
+                        fontSize: '9px',
+                        width: '18px',
+                        height: '18px',
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        borderRadius: '3px',
+                        letterSpacing: 0,
+                        textTransform: 'none' as const,
+                      }}
+                    >
+                      {meta.icon}
+                    </span>
+                    <span style={{ color: meta.color }}>{tool.replace('Adobe ', '')}</span>
+                  </span>
+                )
+              })()}
+              <p className="text-label" style={{ color: 'var(--muted)' }}>
+                {project.discipline.map((d) => DISCIPLINE_LABELS[d] ?? d).join(' / ')}
+                {' / '}
+                {project.year}
+              </p>
+            </div>
           </div>
 
           {/* Overview */}

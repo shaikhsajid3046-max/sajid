@@ -26,16 +26,15 @@ const SOFTWARE_META: Record<Software, { label: string; color: string; icon: stri
 
 const ASSETS: Asset[] = [
   // Photoshop
-  { id: 'ps-1', title: 'Aldenaire Coffee Shop Poster',      src: '/assets/photoshop/coffee-shop-poster.jpg', software: 'photoshop',   format: 'PSD' },
-  { id: 'ps-2', title: 'Coffee Splash Render',       src: '/assets/photoshop/coffee-splash-render.jpg', software: 'photoshop',   format: 'PSD' },
-  { id: 'ps-3', title: 'Jasmine Green Tea Banner',        src: '/assets/photoshop/jasmine-tea-banner.jpg', software: 'photoshop',   format: 'PSD' },
-  { id: 'ps-4', title: 'World Wildlife Campaign Poster',       src: '/assets/photoshop/wildlife-campaign-poster.jpg', software: 'photoshop',   format: 'PSD' },
-  { id: 'ps-5', title: 'Magical Gaze Poster',            src: '/assets/photoshop/magical-gaze-poster.jpg', software: 'photoshop',   format: 'PSD' },
+  { id: 'ps-1', title: 'Coffee Shop Poster',      src: '/assets/photoshop/coffee-shop-poster.jpg', software: 'photoshop',   format: 'PSD' },
+  { id: 'ps-3', title: 'Jasmine Tea Banner',         src: '/assets/photoshop/jasmine-tea-banner.jpg', software: 'photoshop',   format: 'PSD' },
+  { id: 'ps-4', title: 'Wildlife Campaign Poster',   src: '/assets/photoshop/wildlife-campaign-poster.jpg', software: 'photoshop',   format: 'PSD' },
+  { id: 'ps-5', title: 'Magical Gaze Poster',        src: '/assets/photoshop/magical-gaze-poster.jpg', software: 'photoshop',   format: 'PSD' },
   // Illustrator
-  { id: 'ai-1', title: 'Second Rebranding Identity',         src: '/assets/illustrator/rebranding-identity.svg', software: 'illustrator', format: 'AI' },
-  { id: 'ai-2', title: 'Tikkha Tales Brand Identity',            src: '/assets/illustrator/tikkha-tales-branding.jpg',    software: 'illustrator', format: 'AI' },
+  { id: 'ai-1', title: 'Rebranding Identity',         src: '/assets/illustrator/rebranding-identity.svg', software: 'illustrator', format: 'AI' },
+  { id: 'ai-2', title: 'Tikkha Tales Branding',        src: '/assets/illustrator/tikkha-tales-branding.jpg',    software: 'illustrator', format: 'AI' },
   // Premiere Pro
-  { id: 'pr-1', title: 'Anime Reframing Video Reel',     src: '/assets/premiere-pro/anime-reframing-reel.mp4', software: 'premiere-pro', format: 'MP4' },
+  { id: 'pr-1', title: 'Anime Reframing Reel',        src: '/assets/premiere-pro/anime-reframing-reel.mp4', software: 'premiere-pro', format: 'MP4' },
 ]
 
 const FILTERS: { label: string; value: Software | 'all' }[] = [

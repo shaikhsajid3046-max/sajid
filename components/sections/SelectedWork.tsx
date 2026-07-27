@@ -8,6 +8,59 @@ import { SplitText } from '@/components/ui/SplitText'
 import { DISCIPLINE_LABELS } from '@/types/project'
 import type { Project } from '@/types/project'
 
+/* ── Software badge helper ─────────────────────────── */
+
+const TOOL_META: Record<string, { color: string; icon: string }> = {
+  'adobe photoshop':   { color: '#31A8FF', icon: 'Ps' },
+  'adobe illustrator': { color: '#FF9A00', icon: 'Ai' },
+  'adobe premiere pro':{ color: '#9999FF', icon: 'Pr' },
+  'adobe after effects':{ color: '#CF96FD', icon: 'Ae' },
+}
+
+function ToolBadge({ tool }: { tool: string }) {
+  const key = tool.toLowerCase()
+  const meta = TOOL_META[key]
+  if (!meta) return null
+
+  return (
+    <span
+      className="text-label inline-flex items-center gap-1.5 px-2 py-1"
+      style={{
+        backgroundColor: 'rgba(8,8,8,0.6)',
+        backdropFilter: 'blur(6px)',
+        WebkitBackdropFilter: 'blur(6px)',
+        border: `1px solid ${meta.color}30`,
+      }}
+    >
+      <span
+        style={{
+          backgroundColor: meta.color,
+          color: '#000',
+          fontWeight: 700,
+          fontSize: '9px',
+          width: '18px',
+          height: '18px',
+          display: 'inline-flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          borderRadius: '3px',
+          letterSpacing: 0,
+          textTransform: 'none' as const,
+        }}
+      >
+        {meta.icon}
+      </span>
+      <span style={{ color: meta.color, fontSize: '10px' }}>{tool.replace('Adobe ', '')}</span>
+    </span>
+  )
+}
+
+/* ── Check if a URL is a video ─────────────────────── */
+
+function isVideoUrl(url: string): boolean {
+  return /\.(mp4|webm|mov|ogg)$/i.test(url)
+}
+
 interface SelectedWorkProps {
   projects: Project[]
 }
@@ -87,8 +140,9 @@ export function SelectedWork({ projects }: SelectedWorkProps) {
         }}
       >
         {projects.map((project, i) => {
-          const coverSrc = project.coverImageUrl
+          const isVideo = isVideoUrl(project.coverImageUrl)
           const hasCover = Boolean(project.coverImageUrl)
+          const toolName = project.tools?.[0]
 
           return (
             <Link
@@ -100,11 +154,20 @@ export function SelectedWork({ projects }: SelectedWorkProps) {
               }}
               data-cursor-view="true"
             >
-              {/* Background image */}
+              {/* Background image or video */}
               <div className="absolute inset-0">
-                {hasCover ? (
+                {isVideo ? (
+                  <video
+                    src={project.coverImageUrl}
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+                  />
+                ) : hasCover ? (
                   <Image
-                    src={coverSrc}
+                    src={project.coverImageUrl}
                     alt={project.title}
                     fill
                     sizes="(max-width: 768px) 100vw, 50vw"
@@ -131,20 +194,44 @@ export function SelectedWork({ projects }: SelectedWorkProps) {
                 </span>
               </div>
 
-              {/* Discipline — top right */}
-              <div className="absolute top-5 right-5">
-                <span
-                  className="text-label px-2 py-1"
-                  style={{
-                    color: 'var(--accent)',
-                    border: '1px solid rgba(191,164,109,0.3)',
-                    backdropFilter: 'blur(4px)',
-                    backgroundColor: 'rgba(8,8,8,0.4)',
-                  }}
-                >
-                  {project.discipline[0] ? (DISCIPLINE_LABELS[project.discipline[0]] ?? project.discipline[0]) : ''}
-                </span>
+              {/* Software tool badge — top right */}
+              <div className="absolute top-5 right-5" style={{ zIndex: 2 }}>
+                {toolName ? (
+                  <ToolBadge tool={toolName} />
+                ) : (
+                  <span
+                    className="text-label px-2 py-1"
+                    style={{
+                      color: 'var(--accent)',
+                      border: '1px solid rgba(191,164,109,0.3)',
+                      backdropFilter: 'blur(4px)',
+                      backgroundColor: 'rgba(8,8,8,0.4)',
+                    }}
+                  >
+                    {project.discipline[0] ? (DISCIPLINE_LABELS[project.discipline[0]] ?? project.discipline[0]) : ''}
+                  </span>
+                )}
               </div>
+
+              {/* Play icon for video projects */}
+              {isVideo && (
+                <div className="absolute inset-0 flex items-center justify-center" style={{ zIndex: 1 }}>
+                  <div
+                    className="flex items-center justify-center rounded-full opacity-60 group-hover:opacity-90 transition-opacity duration-500"
+                    style={{
+                      width: '56px',
+                      height: '56px',
+                      backgroundColor: 'rgba(8,8,8,0.6)',
+                      backdropFilter: 'blur(8px)',
+                      border: '1px solid rgba(240,237,232,0.15)',
+                    }}
+                  >
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--white)">
+                      <polygon points="6,3 20,12 6,21" />
+                    </svg>
+                  </div>
+                </div>
+              )}
 
               {/* Title + year — bottom */}
               <div className="absolute bottom-0 left-0 right-0 p-6">

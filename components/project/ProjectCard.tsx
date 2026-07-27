@@ -34,10 +34,15 @@ function ArrowRight() {
   )
 }
 
+function isVideoUrl(url: string): boolean {
+  return /\.(mp4|webm|mov|ogg)$/i.test(url)
+}
+
 export function ProjectCard({ project, index }: ProjectCardProps) {
   const cardRef = useRef<HTMLDivElement>(null)
   const coverSrc = project.coverImageUrl
   const hasCover = Boolean(project.coverImageUrl)
+  const isVideo = isVideoUrl(coverSrc)
 
   // Scroll entrance animation
   useEffect(() => {
@@ -68,12 +73,27 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
       <TiltCard maxDeg={6}>
         <Link href={`/work/${project.slug.current}`} className="block group" data-cursor-view="true">
 
-          {/* Image container */}
+          {/* Image / Video container */}
           <div
             className="relative overflow-hidden"
             style={{ aspectRatio: '4/3' }}
           >
-            {hasCover ? (
+            {isVideo ? (
+              <video
+                src={coverSrc}
+                muted
+                loop
+                playsInline
+                className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]"
+                style={{ transform: 'translateZ(20px)' }}
+                onMouseEnter={(e) => (e.target as HTMLVideoElement).play()}
+                onMouseLeave={(e) => {
+                  const v = e.target as HTMLVideoElement
+                  v.pause()
+                  v.currentTime = 0
+                }}
+              />
+            ) : hasCover ? (
               <Image
                 src={coverSrc}
                 alt={project.title}
@@ -90,6 +110,26 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
                 <span className="text-label" style={{ color: 'var(--muted)' }}>
                   {project.title}
                 </span>
+              </div>
+            )}
+
+            {/* Play icon for video projects */}
+            {isVideo && (
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none" style={{ zIndex: 3, transform: 'translateZ(40px)' }}>
+                <div
+                  className="flex items-center justify-center rounded-full opacity-70 group-hover:opacity-0 transition-opacity duration-400"
+                  style={{
+                    width: '48px',
+                    height: '48px',
+                    backgroundColor: 'rgba(8,8,8,0.5)',
+                    backdropFilter: 'blur(6px)',
+                    border: '1px solid rgba(240,237,232,0.15)',
+                  }}
+                >
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--white)">
+                    <polygon points="6,3 20,12 6,21" />
+                  </svg>
+                </div>
               </div>
             )}
 

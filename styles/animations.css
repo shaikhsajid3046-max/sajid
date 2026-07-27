@@ -28,16 +28,21 @@
 }
 
 .swap-btn__text {
-  display: block;
+  display: inline-flex;
+  align-items: center;
   transition: transform 0.3s cubic-bezier(0.76, 0, 0.24, 1);
 }
 
 .swap-btn__clone {
   position: absolute;
-  top: 100%;
+  top: 0;
   left: 0;
   width: 100%;
-  display: block;
+  height: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(100%);
   transition: transform 0.3s cubic-bezier(0.76, 0, 0.24, 1);
 }
 
@@ -46,7 +51,7 @@
 }
 
 .swap-btn:hover .swap-btn__clone {
-  transform: translateY(-100%);
+  transform: translateY(0);
 }
 
 /* ─── Marquee ──────────────────────────────────── */
