@@ -2,6 +2,20 @@
 
 All modifications to the Sajid Shaikh portfolio site are recorded here.
 
+## [2026-07-27] Round 9: Convert Services Section to Skills & Software Tools
+
+### Summary
+Updated Section 04 from "Services" to "Skills", removed all generic discipline service listings (Graphic Design, Media Design, UI/UX Design, Video Editing, Creative Direction, Brand Identity), and replaced them with software tools (Adobe Photoshop, Adobe Illustrator, Adobe Premiere Pro, Adobe After Effects, Adobe InDesign) featuring software icon badges.
+
+---
+
+### Files Modified
+
+| # | File | Change Type | Description |
+|---|------|-------------|-------------|
+| 1 | `components/sections/Services.tsx` | MODIFIED | Changed title to "Skills", replaced generic service items with software tools array (Photoshop, Illustrator, Premiere Pro, After Effects, InDesign) featuring custom software icon badges, and exported `Skills` alias. |
+| 2 | `app/page.tsx` | MODIFIED | Updated import and home page component render from `Services` to `Skills`. |
+
 ---
 
 ## [2026-07-16] Round 8: ScrollTrigger Custom pinSpacer Optimization

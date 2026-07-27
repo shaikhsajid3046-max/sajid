@@ -1,6 +1,6 @@
 import { Hero } from '@/components/sections/Hero'
 import { SelectedWork } from '@/components/sections/SelectedWork'
-import { Services } from '@/components/sections/Services'
+import { Skills } from '@/components/sections/Services'
 import { Recognition } from '@/components/sections/Recognition'
 import { Footer } from '@/components/layout/Footer'
 import { SplitText } from '@/components/ui/SplitText'
@@ -39,8 +39,8 @@ export default async function Home() {
       {/* Section 3 — Selected Work */}
       <SelectedWork projects={projects} />
 
-      {/* Section 4 — Services */}
-      <Services />
+      {/* Section 4 — Skills */}
+      <Skills />
 
       {/* Section 5 — Recognition */}
       <Recognition logos={settings.clientLogos} />
