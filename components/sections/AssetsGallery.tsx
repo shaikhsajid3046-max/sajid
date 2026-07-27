@@ -34,7 +34,7 @@ const ASSETS: Asset[] = [
   { id: 'ai-1', title: 'Rebranding Identity',         src: '/assets/illustrator/rebranding-identity.svg', software: 'illustrator', format: 'AI' },
   { id: 'ai-2', title: 'Tikkha Tales Branding',        src: '/assets/illustrator/tikkha-tales-branding.jpg',    software: 'illustrator', format: 'AI' },
   // Premiere Pro
-  { id: 'pr-1', title: 'Anime Reframing Reel',        src: '/assets/premiere-pro/anime-reframing-reel.mp4', software: 'premiere-pro', format: 'MP4' },
+  { id: 'pr-1', title: 'Anime Reel',                  src: '/assets/premiere-pro/anime-reframing-reel.mp4', software: 'premiere-pro', format: 'MP4' },
 ]
 
 const FILTERS: { label: string; value: Software | 'all' }[] = [

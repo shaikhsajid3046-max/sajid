@@ -107,7 +107,7 @@ export const mockProjects: Project[] = [
   // ── Premiere Pro ───────────────────────────────────
   {
     _id: 'pr-1',
-    title: 'Anime Reframing Reel',
+    title: 'Anime Reel',
     slug: { current: 'anime-reframing-reel' },
     year: 2024,
     discipline: ['video'],
@@ -119,7 +119,7 @@ export const mockProjects: Project[] = [
     featured: true,
     featuredOrder: 4,
     tools: ['Adobe Premiere Pro'],
-    seoDescription: 'Anime Reframing Reel by Sajid Shaikh.',
+    seoDescription: 'Anime Reel by Sajid Shaikh.',
   },
 ]
 
