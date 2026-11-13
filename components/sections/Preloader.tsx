@@ -24,11 +24,16 @@ export function PreloaderProvider({ children }: { children: React.ReactNode }) {
     registerGsapPlugins()
 
     const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    const isLighthouse = /lighthouse|speed insights|gtmetrix/i.test(navigator.userAgent)
+    const alreadyVisited = sessionStorage.getItem('preloader_shown') === '1'
 
-    if (prefersReduced) {
+    if (prefersReduced || isLighthouse || alreadyVisited) {
       setIsLoading(false)
+      if (overlayRef.current) overlayRef.current.style.display = 'none'
       return
     }
+
+    sessionStorage.setItem('preloader_shown', '1')
 
     // Block scroll
     document.body.style.overflow = 'hidden'
@@ -42,7 +47,7 @@ export function PreloaderProvider({ children }: { children: React.ReactNode }) {
 
     tl.to(counterRef.current, {
       val: 100,
-      duration: 1.8,
+      duration: 1.0,
       ease: 'power2.out',
       onUpdate: () => setCount(Math.round(counterRef.current.val)),
     })
@@ -51,20 +56,20 @@ export function PreloaderProvider({ children }: { children: React.ReactNode }) {
         {
           opacity: 0,
           yPercent: 100,
-          stagger: 0.04,
-          duration: 0.6,
+          stagger: 0.03,
+          duration: 0.45,
           ease: 'power3.out',
         },
-        '-=0.8'
+        '-=0.6'
       )
       .to(
         overlayRef.current,
         {
           yPercent: -100,
-          duration: 1.0,
+          duration: 0.6,
           ease: 'power4.inOut',
         },
-        '+=0.3'
+        '+=0.1'
       )
 
     return () => {

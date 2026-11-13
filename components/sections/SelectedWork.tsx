@@ -159,6 +159,7 @@ export function SelectedWork({ projects }: SelectedWorkProps) {
                 {isVideo ? (
                   <video
                     src={project.coverImageUrl}
+                    preload="metadata"
                     autoPlay
                     muted
                     loop
@@ -170,6 +171,8 @@ export function SelectedWork({ projects }: SelectedWorkProps) {
                     src={project.coverImageUrl}
                     alt={project.title}
                     fill
+                    loading={i === 0 ? 'eager' : 'lazy'}
+                    priority={i === 0}
                     sizes="(max-width: 768px) 100vw, 50vw"
                     className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                   />

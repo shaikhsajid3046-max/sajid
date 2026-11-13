@@ -49,7 +49,7 @@ export const mockProjects: Project[] = [
       '/assets/photoshop/coffee-shop-poster.jpg',
     ],
     featured: true,
-    featuredOrder: 6,
+    featuredOrder: 4,
     tools: ['Adobe Photoshop'],
     seoDescription: 'Coffee Shop Poster by Sajid Shaikh.',
   },
@@ -102,6 +102,22 @@ export const mockProjects: Project[] = [
     seoDescription: 'Yummy Maggi noodle poster by Sajid Shaikh.',
   },
   {
+    _id: 'ps-believing',
+    title: 'Believing in Yourself',
+    slug: { current: 'believing-in-yourself' },
+    year: 2024,
+    discipline: ['graphic'],
+    coverImageUrl: '/assets/photoshop/believing-in-yourself.jpg',
+    overview:
+      'Inspirational graphic artwork featuring intricate layered typography, motivational visual hierarchy, and polished digital composite techniques.',
+    gallery: [
+      '/assets/photoshop/believing-in-yourself.jpg',
+    ],
+    featured: false,
+    tools: ['Adobe Photoshop'],
+    seoDescription: 'Believing in Yourself artwork by Sajid Shaikh.',
+  },
+  {
     _id: 'ps-3',
     title: 'Jasmine Tea Banner',
     slug: { current: 'jasmine-tea-banner' },
@@ -152,23 +168,6 @@ export const mockProjects: Project[] = [
 
   // ── Illustrator ────────────────────────────────────
   {
-    _id: 'ai-1',
-    title: 'Rebranding Identity',
-    slug: { current: 'rebranding-identity' },
-    year: 2024,
-    discipline: ['brand', 'graphic'],
-    coverImageUrl: '/assets/illustrator/rebranding-identity.svg',
-    overview:
-      'A comprehensive visual rebranding displaying clean vector logos, minimalist typography guides, and professional color palettes engineered for modular brand scaling.',
-    gallery: [
-      '/assets/illustrator/rebranding-identity.svg',
-    ],
-    featured: true,
-    featuredOrder: 2,
-    tools: ['Adobe Illustrator'],
-    seoDescription: 'Rebranding Identity by Sajid Shaikh.',
-  },
-  {
     _id: 'ai-2',
     title: 'Tikkha Tales Branding',
     slug: { current: 'tikkha-tales-branding' },
@@ -181,9 +180,25 @@ export const mockProjects: Project[] = [
       '/assets/illustrator/tikkha-tales-branding.jpg',
     ],
     featured: true,
-    featuredOrder: 4,
+    featuredOrder: 2,
     tools: ['Adobe Illustrator'],
     seoDescription: 'Tikkha Tales Branding by Sajid Shaikh.',
+  },
+  {
+    _id: 'ai-1',
+    title: 'Rebranding Identity',
+    slug: { current: 'rebranding-identity' },
+    year: 2024,
+    discipline: ['brand', 'graphic'],
+    coverImageUrl: '/assets/illustrator/rebranding-identity.jpg',
+    overview:
+      'A comprehensive visual rebranding displaying clean vector logos, minimalist typography guides, and professional color palettes engineered for modular brand scaling.',
+    gallery: [
+      '/assets/illustrator/rebranding-identity.jpg',
+    ],
+    featured: false,
+    tools: ['Adobe Illustrator'],
+    seoDescription: 'Rebranding Identity by Sajid Shaikh.',
   },
   {
     _id: 'ai-3',
@@ -207,11 +222,11 @@ export const mockProjects: Project[] = [
     slug: { current: 'urban-street-illustration' },
     year: 2024,
     discipline: ['graphic'],
-    coverImageUrl: '/assets/illustrator/street-image.png',
+    coverImageUrl: '/assets/illustrator/street-image.jpg',
     overview:
       'A richly detailed urban landscape illustration capturing architectural layers, street culture, and vibrant color harmonies with stylized line work.',
     gallery: [
-      '/assets/illustrator/street-image.png',
+      '/assets/illustrator/street-image.jpg',
     ],
     featured: false,
     tools: ['Adobe Illustrator'],
@@ -310,8 +325,7 @@ export const mockProjects: Project[] = [
     overview:
       'A high-octane editing showreel demonstrating rhythmic pacing, audio-visual synchronicity, and dynamic reframing techniques across high-energy action sequences.',
     gallery: [],
-    featured: true,
-    featuredOrder: 5,
+    featured: false,
     tools: ['Adobe Premiere Pro'],
     seoDescription: 'Anime Reel by Sajid Shaikh.',
   },

@@ -13,7 +13,7 @@ const config: Config = {
         white: '#F0EDE8',
         accent: '#BFA46D',
         surface: '#111111',
-        muted: '#545454',
+        muted: '#8E8E8E',
         border: '#1C1C1C',
       },
       fontFamily: {

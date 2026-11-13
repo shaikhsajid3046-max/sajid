@@ -240,7 +240,9 @@ export function WebGLHero() {
         const fade = Math.max(0, 1 - scrollY * 1.8)
         renderer.domElement.style.opacity = String(fade)
 
-        renderer.render(scene, camera)
+        if (fade > 0.01) {
+          renderer.render(scene, camera)
+        }
       }
       animate()
 

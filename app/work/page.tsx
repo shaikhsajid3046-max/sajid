@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { getAllProjects, getSiteSettings } from '@/lib/data/queries'
-import { WorkPageHeader } from '@/components/sections/WorkPageHeader'
+import { WorkHero } from '@/components/sections/WorkHero'
 import { ProjectCard } from '@/components/project/ProjectCard'
 import { Footer } from '@/components/layout/Footer'
 
@@ -15,16 +15,27 @@ export default async function WorkPage() {
     getSiteSettings(),
   ])
 
+  // Featured Anime Reframing Reel for the Hero section
+  const animeReel = allProjects.find((p) => p.slug.current === 'anime-reframing-reel') ?? null
+
   // Filter projects by their software folder (tools)
-  const photoshopProjects = allProjects.filter(p => p.tools?.some(t => t.toLowerCase().includes('photoshop')))
-  const illustratorProjects = allProjects.filter(p => p.tools?.some(t => t.toLowerCase().includes('illustrator')))
-  const premiereProjects = allProjects.filter(p => p.tools?.some(t => t.toLowerCase().includes('premiere')))
-  const afterEffectsProjects = allProjects.filter(p => p.tools?.some(t => t.toLowerCase().includes('after effects')))
+  const photoshopProjects = allProjects.filter((p) =>
+    p.tools?.some((t) => t.toLowerCase().includes('photoshop'))
+  )
+  const illustratorProjects = allProjects.filter((p) =>
+    p.tools?.some((t) => t.toLowerCase().includes('illustrator'))
+  )
+  const premiereProjects = allProjects.filter((p) =>
+    p.tools?.some((t) => t.toLowerCase().includes('premiere'))
+  )
+  const afterEffectsProjects = allProjects.filter((p) =>
+    p.tools?.some((t) => t.toLowerCase().includes('after effects'))
+  )
 
   return (
     <>
-      {/* Header */}
-      <WorkPageHeader projectCount={allProjects.length} />
+      {/* Hero Section featuring the Anime Reframing Reel */}
+      <WorkHero projectCount={allProjects.length} featuredReel={animeReel} />
 
       {/* Photoshop Section */}
       {photoshopProjects.length > 0 && (
@@ -131,7 +142,7 @@ export default async function WorkPage() {
         </section>
       )}
 
-      {/* After Effects Section (Hidden when empty, appears when files are added) */}
+      {/* After Effects Section */}
       {afterEffectsProjects.length > 0 && (
         <section
           id="after-effects"

@@ -81,6 +81,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
             {isVideo ? (
               <video
                 src={coverSrc}
+                preload="none"
                 muted
                 loop
                 playsInline
@@ -98,6 +99,8 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
                 src={coverSrc}
                 alt={project.title}
                 fill
+                loading={index < 4 ? 'eager' : 'lazy'}
+                priority={index < 2}
                 sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]"
                 style={{ transform: 'translateZ(20px)' }} /* 3D lift on image */

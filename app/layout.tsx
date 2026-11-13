@@ -12,6 +12,12 @@ const inter = Inter({
   display: 'swap',
 })
 
+export const viewport = {
+  themeColor: '#080808',
+  width: 'device-width',
+  initialScale: 1,
+}
+
 export const metadata: Metadata = {
   metadataBase: new URL('https://sajidshaikh.com'),
   title: {

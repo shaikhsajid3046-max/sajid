@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { getSiteSettings } from '@/lib/data/queries'
+import { ASSETS } from '@/lib/data/assetsData'
 import { AssetsPageHeader } from '@/components/sections/AssetsPageHeader'
 import { AssetsGallery } from '@/components/sections/AssetsGallery'
 import { Footer } from '@/components/layout/Footer'
@@ -14,7 +15,7 @@ export default async function AssetsPage() {
 
   return (
     <>
-      <AssetsPageHeader assetCount={20} />
+      <AssetsPageHeader assetCount={ASSETS.length} />
 
       <section style={{ padding: '0 var(--margin-page)' }} className="mt-12 pb-24">
         <AssetsGallery />
@@ -29,4 +30,3 @@ export default async function AssetsPage() {
     </>
   )
 }
-
