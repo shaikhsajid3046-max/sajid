@@ -304,8 +304,8 @@ export const mockProjects: Project[] = [
     slug: { current: 'anime-reel' },
     year: 2024,
     discipline: ['video'],
-    coverImageUrl: '/assets/premiere-pro/anime-reel-poster.jpg',
-    heroVideoUrl: '/assets/premiere-pro/anime-reframing-reel.mp4',
+    coverImageUrl: '/assets/premiere-pro/anime-reel-landscape-poster.jpg',
+    heroVideoUrl: '/assets/premiere-pro/anime-reel-landscape.mp4',
     overview:
       'A high-octane editing showreel demonstrating rhythmic pacing, audio-visual synchronicity, and dynamic reframing techniques across high-energy action sequences.',
     gallery: [],
