@@ -19,9 +19,9 @@ export const viewport = {
 }
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://sajidshaikh.com'),
+  metadataBase: new URL('https://sajidsheikh.com'),
   title: {
-    default: 'Sajid Shaikh | Designer & Creative',
+    default: 'Sajid Shaikh — Designer & Creative',
     template: '%s | Sajid Shaikh',
   },
   description:

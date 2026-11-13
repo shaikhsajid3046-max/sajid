@@ -281,3 +281,4 @@ export function WorkHero({ projectCount, featuredReel }: WorkHeroProps) {
     </section>
   )
 }
+

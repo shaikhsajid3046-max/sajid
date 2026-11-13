@@ -30,7 +30,6 @@ export const ASSETS: Asset[] = [
 
   // ── Illustrator ────────────────────────────────────
   { id: 'ai-2',        title: 'Tikkha Tales Branding',       src: '/assets/illustrator/tikkha-tales-branding.jpg',         software: 'illustrator',    format: 'AI'  },
-  { id: 'ai-1',        title: 'Rebranding Identity',         src: '/assets/illustrator/rebranding-identity.jpg',           software: 'illustrator',    format: 'JPG' },
   { id: 'ai-3',        title: 'Ritual Café Branding',        src: '/assets/illustrator/ritual-cafe.svg',                   software: 'illustrator',    format: 'SVG' },
   { id: 'ai-street',   title: 'Urban Street Illustration',   src: '/assets/illustrator/street-image.jpg',                  software: 'illustrator',    format: 'JPG' },
   { id: 'ai-girl',     title: 'Vector Character Art',        src: '/assets/illustrator/girl-vector-art.jpg',               software: 'illustrator',    format: 'AI'  },
@@ -40,9 +39,10 @@ export const ASSETS: Asset[] = [
   { id: 'ai-bg',       title: 'Geometric Backgrounds',       src: '/assets/illustrator/background-design.jpg',             software: 'illustrator',    format: 'AI'  },
 
   // ── Premiere Pro ───────────────────────────────────
-  { id: 'pr-1',        title: 'Anime Reframing Reel',        src: '/assets/premiere-pro/anime-reframing-reel.mp4',         software: 'premiere-pro',   format: 'MP4' },
+  { id: 'pr-1',        title: 'Anime Reel',                  src: '/assets/premiere-pro/anime-reframing-reel.mp4',         software: 'premiere-pro',   format: 'MP4' },
   { id: 'pr-2',        title: 'Video Editing Showreel',      src: '/assets/premiere-pro/show-reel.mp4',                    software: 'premiere-pro',   format: 'MP4' },
 
   // ── After Effects ──────────────────────────────────
   { id: 'ae-1',        title: 'Motion Graphics Reel',        src: '/assets/after-effects/ae-showreel.mp4',                 software: 'after-effects',  format: 'MP4' },
 ]
+

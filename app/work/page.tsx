@@ -15,8 +15,8 @@ export default async function WorkPage() {
     getSiteSettings(),
   ])
 
-  // Featured Anime Reframing Reel for the Hero section
-  const animeReel = allProjects.find((p) => p.slug.current === 'anime-reframing-reel') ?? null
+  // Featured Anime Reel for the Hero section
+  const animeReel = allProjects.find((p) => p.slug.current === 'anime-reel' || p.slug.current === 'anime-reframing-reel') ?? null
 
   // Filter projects by their software folder (tools)
   const photoshopProjects = allProjects.filter((p) =>

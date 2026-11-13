@@ -185,22 +185,6 @@ export const mockProjects: Project[] = [
     seoDescription: 'Tikkha Tales Branding by Sajid Shaikh.',
   },
   {
-    _id: 'ai-1',
-    title: 'Rebranding Identity',
-    slug: { current: 'rebranding-identity' },
-    year: 2024,
-    discipline: ['brand', 'graphic'],
-    coverImageUrl: '/assets/illustrator/rebranding-identity.jpg',
-    overview:
-      'A comprehensive visual rebranding displaying clean vector logos, minimalist typography guides, and professional color palettes engineered for modular brand scaling.',
-    gallery: [
-      '/assets/illustrator/rebranding-identity.jpg',
-    ],
-    featured: false,
-    tools: ['Adobe Illustrator'],
-    seoDescription: 'Rebranding Identity by Sajid Shaikh.',
-  },
-  {
     _id: 'ai-3',
     title: 'Ritual Café Branding',
     slug: { current: 'ritual-cafe-branding' },
@@ -316,8 +300,8 @@ export const mockProjects: Project[] = [
   // ── Premiere Pro ───────────────────────────────────
   {
     _id: 'pr-1',
-    title: 'Anime Reframing Reel',
-    slug: { current: 'anime-reframing-reel' },
+    title: 'Anime Reel',
+    slug: { current: 'anime-reel' },
     year: 2024,
     discipline: ['video'],
     coverImageUrl: '/assets/premiere-pro/anime-reframing-reel.mp4',
