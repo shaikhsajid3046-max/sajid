@@ -31,7 +31,6 @@ export const ASSETS: Asset[] = [
 
   // ── Illustrator ────────────────────────────────────
   { id: 'ai-2',        title: 'Tikkha Tales Branding',       src: '/assets/illustrator/tikkha-tales-branding.jpg',         software: 'illustrator',    format: 'AI'  },
-  { id: 'ai-3',        title: 'Ritual Café Branding',        src: '/assets/illustrator/ritual-cafe.svg',                   software: 'illustrator',    format: 'SVG' },
   { id: 'ai-street',   title: 'Urban Street Illustration',   src: '/assets/illustrator/street-image.jpg',                  software: 'illustrator',    format: 'JPG' },
   { id: 'ai-girl',     title: 'Vector Character Art',        src: '/assets/illustrator/girl-vector-art.jpg',               software: 'illustrator',    format: 'AI'  },
   { id: 'ai-cat',      title: 'Feline Vector Art',           src: '/assets/illustrator/cat-vector-art.jpg',                software: 'illustrator',    format: 'AI'  },

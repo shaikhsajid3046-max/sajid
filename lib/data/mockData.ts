@@ -185,22 +185,6 @@ export const mockProjects: Project[] = [
     seoDescription: 'Tikkha Tales Branding by Sajid Shaikh.',
   },
   {
-    _id: 'ai-3',
-    title: 'Ritual Café Branding',
-    slug: { current: 'ritual-cafe-branding' },
-    year: 2024,
-    discipline: ['brand', 'graphic'],
-    coverImageUrl: '/assets/illustrator/ritual-cafe.svg',
-    overview:
-      'A complete artisanal brand identity for Ritual Café — featuring handcrafted vector logos, custom emblem illustrations, and an earthy color palette tailored for packaging and storefront signage.',
-    gallery: [
-      '/assets/illustrator/ritual-cafe.svg',
-    ],
-    featured: false,
-    tools: ['Adobe Illustrator'],
-    seoDescription: 'Ritual Café Branding by Sajid Shaikh.',
-  },
-  {
     _id: 'ai-street',
     title: 'Urban Street Illustration',
     slug: { current: 'urban-street-illustration' },
