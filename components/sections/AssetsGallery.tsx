@@ -24,17 +24,35 @@ const SOFTWARE_META: Record<Software, { label: string; color: string; icon: stri
   'after-effects':{ label: 'After Effects', color: '#CF96FD', icon: 'Ae' },
 }
 
-const ASSETS: Asset[] = [
-  // Photoshop
-  { id: 'ps-1', title: 'Coffee Shop Poster',      src: '/assets/photoshop/coffee-shop-poster.jpg', software: 'photoshop',   format: 'PSD' },
-  { id: 'ps-3', title: 'Jasmine Tea Banner',         src: '/assets/photoshop/jasmine-tea-banner.jpg', software: 'photoshop',   format: 'PSD' },
-  { id: 'ps-4', title: 'Wildlife Campaign Poster',   src: '/assets/photoshop/wildlife-campaign-poster.jpg', software: 'photoshop',   format: 'PSD' },
-  { id: 'ps-5', title: 'Magical Gaze Poster',        src: '/assets/photoshop/magical-gaze-poster.jpg', software: 'photoshop',   format: 'PSD' },
-  // Illustrator
-  { id: 'ai-1', title: 'Rebranding Identity',         src: '/assets/illustrator/rebranding-identity.svg', software: 'illustrator', format: 'AI' },
-  { id: 'ai-2', title: 'Tikkha Tales Branding',        src: '/assets/illustrator/tikkha-tales-branding.jpg',    software: 'illustrator', format: 'AI' },
-  // Premiere Pro
-  { id: 'pr-1', title: 'Anime Reel',                  src: '/assets/premiere-pro/anime-reframing-reel.mp4', software: 'premiere-pro', format: 'MP4' },
+export const ASSETS: Asset[] = [
+  // ── Photoshop ──────────────────────────────────────
+  { id: 'ps-dope',     title: 'Dope Stuff Everyday',        src: '/assets/photoshop/dope-stuff-everyday.jpg',             software: 'photoshop',      format: 'PSD' },
+  { id: 'ps-fashion',  title: 'Experimental Fashion',       src: '/assets/photoshop/experimental-fashion-poster.jpg',      software: 'photoshop',      format: 'PSD' },
+  { id: 'ps-1',        title: 'Coffee Shop Poster',         src: '/assets/photoshop/coffee-shop-poster.jpg',              software: 'photoshop',      format: 'PSD' },
+  { id: 'ps-french',   title: 'French Fries Commercial',    src: '/assets/photoshop/french-fries-poster.jpg',             software: 'photoshop',      format: 'PSD' },
+  { id: 'ps-orange',   title: 'Citrus Splash Poster',       src: '/assets/photoshop/orange-juice-poster.jpg',             software: 'photoshop',      format: 'PSD' },
+  { id: 'ps-maggi',    title: 'Noodle Bowl Campaign',       src: '/assets/photoshop/yummy-maggi-poster.jpg',              software: 'photoshop',      format: 'PSD' },
+  { id: 'ps-3',        title: 'Jasmine Tea Banner',          src: '/assets/photoshop/jasmine-tea-banner.jpg',              software: 'photoshop',      format: 'PSD' },
+  { id: 'ps-4',        title: 'Wildlife Conservation',      src: '/assets/photoshop/wildlife-campaign-poster.jpg',        software: 'photoshop',      format: 'PSD' },
+  { id: 'ps-5',        title: 'Magical Gaze',               src: '/assets/photoshop/magical-gaze-poster.jpg',             software: 'photoshop',      format: 'PSD' },
+
+  // ── Illustrator ────────────────────────────────────
+  { id: 'ai-1',        title: 'Rebranding Identity',         src: '/assets/illustrator/rebranding-identity.svg',           software: 'illustrator',    format: 'SVG' },
+  { id: 'ai-2',        title: 'Tikkha Tales Branding',       src: '/assets/illustrator/tikkha-tales-branding.jpg',         software: 'illustrator',    format: 'AI'  },
+  { id: 'ai-3',        title: 'Ritual Café Branding',        src: '/assets/illustrator/ritual-cafe.svg',                   software: 'illustrator',    format: 'SVG' },
+  { id: 'ai-street',   title: 'Urban Street Illustration',   src: '/assets/illustrator/street-image.png',                  software: 'illustrator',    format: 'PNG' },
+  { id: 'ai-girl',     title: 'Vector Character Art',        src: '/assets/illustrator/girl-vector-art.jpg',               software: 'illustrator',    format: 'AI'  },
+  { id: 'ai-cat',      title: 'Feline Vector Art',           src: '/assets/illustrator/cat-vector-art.jpg',                software: 'illustrator',    format: 'AI'  },
+  { id: 'ai-dog',      title: 'Canine Vector Portrait',      src: '/assets/illustrator/dog-vector-art.jpg',                software: 'illustrator',    format: 'AI'  },
+  { id: 'ai-cafe',     title: 'Café Collateral & Art',       src: '/assets/illustrator/cafe.jpg',                          software: 'illustrator',    format: 'AI'  },
+  { id: 'ai-bg',       title: 'Geometric Backgrounds',       src: '/assets/illustrator/background-design.jpg',             software: 'illustrator',    format: 'AI'  },
+
+  // ── Premiere Pro ───────────────────────────────────
+  { id: 'pr-1',        title: 'Anime Reframing Reel',        src: '/assets/premiere-pro/anime-reframing-reel.mp4',         software: 'premiere-pro',   format: 'MP4' },
+  { id: 'pr-2',        title: 'Video Editing Showreel',      src: '/assets/premiere-pro/show-reel.mp4',                    software: 'premiere-pro',   format: 'MP4' },
+
+  // ── After Effects ──────────────────────────────────
+  { id: 'ae-1',        title: 'Motion Graphics Reel',        src: '/assets/after-effects/ae-showreel.mp4',                 software: 'after-effects',  format: 'MP4' },
 ]
 
 const FILTERS: { label: string; value: Software | 'all' }[] = [
@@ -42,6 +60,7 @@ const FILTERS: { label: string; value: Software | 'all' }[] = [
   { label: 'Photoshop',     value: 'photoshop' },
   { label: 'Illustrator',   value: 'illustrator' },
   { label: 'Premiere Pro',  value: 'premiere-pro' },
+  { label: 'After Effects', value: 'after-effects' },
 ]
 
 /* ─── Software badge icon ─────────────────────────── */
@@ -236,11 +255,12 @@ export function AssetsGallery() {
     ? ASSETS
     : ASSETS.filter((a) => a.software === active)
 
-  const counts = {
+  const counts: Record<string, number> = {
     all: ASSETS.length,
     photoshop: ASSETS.filter((a) => a.software === 'photoshop').length,
     illustrator: ASSETS.filter((a) => a.software === 'illustrator').length,
     'premiere-pro': ASSETS.filter((a) => a.software === 'premiere-pro').length,
+    'after-effects': ASSETS.filter((a) => a.software === 'after-effects').length,
   }
 
   // Animate cards on filter change
@@ -261,8 +281,8 @@ export function AssetsGallery() {
         opacity: 1,
         y: 0,
         scale: 1,
-        stagger: 0.08,
-        duration: 0.6,
+        stagger: 0.05,
+        duration: 0.5,
         ease: 'power3.out',
       }
     )
@@ -281,7 +301,7 @@ export function AssetsGallery() {
         opacity: 0,
         y: 60,
         duration: 0.9,
-        delay: (i % 3) * 0.12,
+        delay: (i % 3) * 0.1,
         ease: 'power3.out',
         scrollTrigger: {
           trigger: card,
@@ -341,7 +361,7 @@ export function AssetsGallery() {
               >
                 {label}
                 <span className="ml-1" style={{ opacity: 0.5, fontSize: '10px' }}>
-                  ({counts[value as keyof typeof counts] ?? 0})
+                  ({counts[value] ?? 0})
                 </span>
               </button>
             )
@@ -358,7 +378,6 @@ export function AssetsGallery() {
       <div ref={gridRef} className="assets-grid">
         {filtered.map((asset, i) => {
           const isVideo = asset.format === 'MP4'
-          const meta = SOFTWARE_META[asset.software]
 
           return (
             <div key={asset.id} className="asset-card">

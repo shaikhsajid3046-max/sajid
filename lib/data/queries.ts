@@ -7,7 +7,11 @@ export async function getAllProjects(): Promise<Project[]> {
 }
 
 export async function getFeaturedProjects(): Promise<Project[]> {
-  return Promise.resolve(mockProjects.filter((p) => p.featured))
+  return Promise.resolve(
+    mockProjects
+      .filter((p) => p.featured)
+      .sort((a, b) => (a.featuredOrder ?? 99) - (b.featuredOrder ?? 99))
+  )
 }
 
 export async function getProject(slug: string): Promise<Project | null> {

@@ -34,3 +34,19 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# raw source files (too large for git)
+*.psd
+*.aep
+*.mov
+*.ai
+raw-assets/
+
+# source asset folders (keep page.tsx, ignore raw files)
+app/assets/photoshop/
+app/assets/illustrator/
+app/assets/premiere-pro/
+app/assets/after-effects/
+
+# large media files exceeding GitHub's 100MB limit
+public/assets/premiere-pro/show-reel.mp4

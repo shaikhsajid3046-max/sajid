@@ -45,6 +45,12 @@ export function Navbar() {
             {isActive('/work') && <span className="nav-active-dot" />}
           </Link>
 
+          <Link href="/assets" className="swap-btn text-label hidden md:block relative">
+            <span className="swap-btn__text">Assets</span>
+            <span className="swap-btn__clone" aria-hidden="true">Assets</span>
+            {isActive('/assets') && <span className="nav-active-dot" />}
+          </Link>
+
           {/* CTA */}
           <a
             href="mailto:shaikhsajid3046@gmail.com"

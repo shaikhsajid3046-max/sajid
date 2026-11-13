@@ -7,6 +7,7 @@ import { gsap, registerGsapPlugins } from '@/lib/gsap/gsapConfig'
 const NAV_LINKS = [
   { href: '/', label: 'Home' },
   { href: '/work', label: 'Work' },
+  { href: '/assets', label: 'Assets' },
   { href: '/contact', label: 'Contact' },
 ]
 
