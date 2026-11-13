@@ -41,10 +41,10 @@ export default async function WorkPage() {
       {photoshopProjects.length > 0 && (
         <section
           id="photoshop"
-          className="mt-16"
+          className="mt-12 sm:mt-16 md:mt-24"
           style={{ padding: '0 var(--margin-page)' }}
         >
-          <div className="flex items-center gap-3 mb-8">
+          <div className="flex items-center gap-3 mb-6 sm:mb-8">
             <span
               className="text-label inline-flex items-center justify-center"
               style={{
@@ -64,7 +64,7 @@ export default async function WorkPage() {
             <span className="section-label">Photoshop</span>
             <span className="text-label" style={{ opacity: 0.5 }}>({photoshopProjects.length})</span>
           </div>
-          <div className="grid grid-cols-1 gap-x-6 gap-y-12 md:grid-cols-2">
+          <div className="grid grid-cols-1 gap-x-6 gap-y-8 sm:gap-y-12 md:grid-cols-2 lg:gap-x-8">
             {photoshopProjects.map((project, i) => (
               <ProjectCard key={project._id} project={project} index={i} />
             ))}
@@ -76,10 +76,10 @@ export default async function WorkPage() {
       {illustratorProjects.length > 0 && (
         <section
           id="illustrator"
-          className="mt-24"
+          className="mt-12 sm:mt-16 md:mt-24"
           style={{ padding: '0 var(--margin-page)' }}
         >
-          <div className="flex items-center gap-3 mb-8">
+          <div className="flex items-center gap-3 mb-6 sm:mb-8">
             <span
               className="text-label inline-flex items-center justify-center"
               style={{
@@ -99,7 +99,7 @@ export default async function WorkPage() {
             <span className="section-label">Illustrator</span>
             <span className="text-label" style={{ opacity: 0.5 }}>({illustratorProjects.length})</span>
           </div>
-          <div className="grid grid-cols-1 gap-x-6 gap-y-12 md:grid-cols-2">
+          <div className="grid grid-cols-1 gap-x-6 gap-y-8 sm:gap-y-12 md:grid-cols-2 lg:gap-x-8">
             {illustratorProjects.map((project, i) => (
               <ProjectCard key={project._id} project={project} index={i} />
             ))}
@@ -111,10 +111,10 @@ export default async function WorkPage() {
       {premiereProjects.length > 0 && (
         <section
           id="premiere-pro"
-          className="mt-24"
+          className="mt-12 sm:mt-16 md:mt-24"
           style={{ padding: '0 var(--margin-page)' }}
         >
-          <div className="flex items-center gap-3 mb-8">
+          <div className="flex items-center gap-3 mb-6 sm:mb-8">
             <span
               className="text-label inline-flex items-center justify-center"
               style={{
@@ -134,7 +134,7 @@ export default async function WorkPage() {
             <span className="section-label">Premiere Pro</span>
             <span className="text-label" style={{ opacity: 0.5 }}>({premiereProjects.length})</span>
           </div>
-          <div className="grid grid-cols-1 gap-x-6 gap-y-12 md:grid-cols-2">
+          <div className="grid grid-cols-1 gap-x-6 gap-y-8 sm:gap-y-12 md:grid-cols-2 lg:gap-x-8">
             {premiereProjects.map((project, i) => (
               <ProjectCard key={project._id} project={project} index={i} />
             ))}
@@ -146,10 +146,10 @@ export default async function WorkPage() {
       {afterEffectsProjects.length > 0 && (
         <section
           id="after-effects"
-          className="mt-24"
+          className="mt-12 sm:mt-16 md:mt-24"
           style={{ padding: '0 var(--margin-page)' }}
         >
-          <div className="flex items-center gap-3 mb-8">
+          <div className="flex items-center gap-3 mb-6 sm:mb-8">
             <span
               className="text-label inline-flex items-center justify-center"
               style={{
@@ -169,7 +169,7 @@ export default async function WorkPage() {
             <span className="section-label">After Effects</span>
             <span className="text-label" style={{ opacity: 0.5 }}>({afterEffectsProjects.length})</span>
           </div>
-          <div className="grid grid-cols-1 gap-x-6 gap-y-12 md:grid-cols-2">
+          <div className="grid grid-cols-1 gap-x-6 gap-y-8 sm:gap-y-12 md:grid-cols-2 lg:gap-x-8">
             {afterEffectsProjects.map((project, i) => (
               <ProjectCard key={project._id} project={project} index={i} />
             ))}
@@ -177,10 +177,9 @@ export default async function WorkPage() {
         </section>
       )}
 
-      <div className="mt-24">
+      <div className="mt-16 sm:mt-24">
         <Footer
           email={settings.email}
-          instagramUrl={settings.instagramUrl}
           behanceUrl={settings.behanceUrl}
           linkedinUrl={settings.linkedinUrl}
         />

@@ -48,7 +48,6 @@ export default async function Home() {
       {/* Footer */}
       <Footer
         email={settings.email}
-        instagramUrl={settings.instagramUrl}
         behanceUrl={settings.behanceUrl}
         linkedinUrl={settings.linkedinUrl}
       />

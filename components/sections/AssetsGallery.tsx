@@ -138,9 +138,9 @@ function Lightbox({
       <button
         onClick={(e) => { e.stopPropagation(); onPrev() }}
         aria-label="Previous asset"
-        className="assets-nav-btn absolute left-4 md:left-8 top-1/2 -translate-y-1/2"
+        className="assets-nav-btn absolute left-2 sm:left-4 md:left-8 top-1/2 -translate-y-1/2 w-9 h-9 sm:w-12 sm:h-12"
       >
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
           <polyline points="15 18 9 12 15 6" />
         </svg>
       </button>
@@ -148,9 +148,9 @@ function Lightbox({
       <button
         onClick={(e) => { e.stopPropagation(); onNext() }}
         aria-label="Next asset"
-        className="assets-nav-btn absolute right-4 md:right-8 top-1/2 -translate-y-1/2"
+        className="assets-nav-btn absolute right-2 sm:right-4 md:right-8 top-1/2 -translate-y-1/2 w-9 h-9 sm:w-12 sm:h-12"
       >
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
           <polyline points="9 6 15 12 9 18" />
         </svg>
       </button>
@@ -249,16 +249,15 @@ export function AssetsGallery() {
     if (prefersReduced) return
 
     const cards = gridRef.current.querySelectorAll('.asset-card')
-    cards.forEach((card, i) => {
+    cards.forEach((card) => {
       gsap.from(card, {
         opacity: 0,
-        y: 60,
-        duration: 0.9,
-        delay: (i % 3) * 0.1,
-        ease: 'power3.out',
+        y: 20,
+        duration: 0.35,
+        ease: 'power2.out',
         scrollTrigger: {
           trigger: card,
-          start: 'top 92%',
+          start: 'top 96%',
           once: true,
         },
       })
@@ -346,6 +345,7 @@ export function AssetsGallery() {
                     {isVideo ? (
                       <video
                         src={asset.src}
+                        poster={asset.poster}
                         preload="none"
                         muted
                         loop

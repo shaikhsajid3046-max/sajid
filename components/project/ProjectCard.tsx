@@ -42,9 +42,11 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
   const cardRef = useRef<HTMLDivElement>(null)
   const coverSrc = project.coverImageUrl
   const hasCover = Boolean(project.coverImageUrl)
-  const isVideo = isVideoUrl(coverSrc)
+  const isVideo = isVideoUrl(coverSrc) || Boolean(project.heroVideoUrl)
+  const videoSrc = project.heroVideoUrl || (isVideoUrl(coverSrc) ? coverSrc : null)
+  const posterSrc = isVideoUrl(coverSrc) ? undefined : coverSrc
 
-  // Scroll entrance animation
+  // Scroll entrance animation - snappy and immediate
   useEffect(() => {
     registerGsapPlugins()
     const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
@@ -53,20 +55,19 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
     const ctx = gsap.context(() => {
       gsap.from(cardRef.current, {
         opacity: 0,
-        y: 50,
-        duration: 0.9,
-        delay: (index % 2) * 0.15,
-        ease: 'power3.out',
+        y: 20,
+        duration: 0.35,
+        ease: 'power2.out',
         scrollTrigger: {
           trigger: cardRef.current,
-          start: 'top 90%',
+          start: 'top 96%',
           once: true,
         },
       })
     })
 
     return () => ctx.revert()
-  }, [index])
+  }, [])
 
   return (
     <div ref={cardRef}>
@@ -78,9 +79,10 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
             className="relative overflow-hidden"
             style={{ aspectRatio: '4/3' }}
           >
-            {isVideo ? (
+            {videoSrc ? (
               <video
-                src={coverSrc}
+                src={videoSrc}
+                poster={posterSrc}
                 preload="none"
                 muted
                 loop
@@ -101,7 +103,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
                 fill
                 loading={index < 4 ? 'eager' : 'lazy'}
                 priority={index < 2}
-                sizes="(max-width: 768px) 100vw, 50vw"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 50vw"
                 className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]"
                 style={{ transform: 'translateZ(20px)' }} /* 3D lift on image */
               />

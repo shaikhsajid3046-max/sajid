@@ -6,6 +6,7 @@ export interface Asset {
   src: string
   software: Software
   format: string
+  poster?: string
 }
 
 export const SOFTWARE_META: Record<Software, { label: string; color: string; icon: string }> = {
@@ -39,10 +40,10 @@ export const ASSETS: Asset[] = [
   { id: 'ai-bg',       title: 'Geometric Backgrounds',       src: '/assets/illustrator/background-design.jpg',             software: 'illustrator',    format: 'AI'  },
 
   // ── Premiere Pro ───────────────────────────────────
-  { id: 'pr-1',        title: 'Anime Reel',                  src: '/assets/premiere-pro/anime-reframing-reel.mp4',         software: 'premiere-pro',   format: 'MP4' },
-  { id: 'pr-2',        title: 'Video Editing Showreel',      src: '/assets/premiere-pro/show-reel.mp4',                    software: 'premiere-pro',   format: 'MP4' },
+  { id: 'pr-1',        title: 'Anime Reel',                  src: '/assets/premiere-pro/anime-reframing-reel.mp4',         software: 'premiere-pro',   format: 'MP4', poster: '/assets/premiere-pro/anime-reel-poster.jpg' },
+  { id: 'pr-2',        title: 'Video Editing Showreel',      src: '/assets/premiere-pro/show-reel.mp4',                    software: 'premiere-pro',   format: 'MP4', poster: '/assets/premiere-pro/show-reel-poster.jpg' },
 
   // ── After Effects ──────────────────────────────────
-  { id: 'ae-1',        title: 'Motion Graphics Reel',        src: '/assets/after-effects/ae-showreel.mp4',                 software: 'after-effects',  format: 'MP4' },
+  { id: 'ae-1',        title: 'Motion Graphics Reel',        src: '/assets/after-effects/ae-showreel.mp4',                 software: 'after-effects',  format: 'MP4', poster: '/assets/after-effects/ae-showreel-poster.jpg' },
 ]
 

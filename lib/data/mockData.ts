@@ -304,7 +304,7 @@ export const mockProjects: Project[] = [
     slug: { current: 'anime-reel' },
     year: 2024,
     discipline: ['video'],
-    coverImageUrl: '/assets/premiere-pro/anime-reframing-reel.mp4',
+    coverImageUrl: '/assets/premiere-pro/anime-reel-poster.jpg',
     heroVideoUrl: '/assets/premiere-pro/anime-reframing-reel.mp4',
     overview:
       'A high-octane editing showreel demonstrating rhythmic pacing, audio-visual synchronicity, and dynamic reframing techniques across high-energy action sequences.',
@@ -319,7 +319,7 @@ export const mockProjects: Project[] = [
     slug: { current: 'video-editing-showreel' },
     year: 2024,
     discipline: ['video'],
-    coverImageUrl: '/assets/premiere-pro/show-reel.mp4',
+    coverImageUrl: '/assets/premiere-pro/show-reel-poster.jpg',
     heroVideoUrl: '/assets/premiere-pro/show-reel.mp4',
     overview:
       'A comprehensive commercial video editing showreel showcasing narrative pacing, audio mastering, seamless cuts, and color grading across varied creative genres.',
@@ -336,7 +336,7 @@ export const mockProjects: Project[] = [
     slug: { current: 'ae-showreel' },
     year: 2024,
     discipline: ['motion'],
-    coverImageUrl: '/assets/after-effects/ae-showreel.mp4',
+    coverImageUrl: '/assets/after-effects/ae-showreel-poster.jpg',
     heroVideoUrl: '/assets/after-effects/ae-showreel.mp4',
     overview:
       'A kinetic motion graphics reel highlighting typography animation, particle systems, seamless camera transitions, and visual effects composited in After Effects.',
@@ -355,8 +355,7 @@ export const mockSiteSettings: SiteSettings = {
   portraitImageUrl: '/assets/photoshop/dope-stuff-everyday.jpg',
   cvFileUrl: '/files/cv.pdf',
   email: 'shaikhsajid3046@gmail.com',
-  instagramUrl: 'https://instagram.com',
-  behanceUrl: 'https://behance.net',
-  linkedinUrl: 'https://linkedin.com',
+  behanceUrl: 'https://www.behance.net/sajidshaikh83',
+  linkedinUrl: 'https://www.linkedin.com/in/sajid-shaikh-13b528416/',
   clientLogos: [],
 }

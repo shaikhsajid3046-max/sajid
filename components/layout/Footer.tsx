@@ -3,20 +3,8 @@ import { FooterCTA } from '@/components/sections/FooterCTA'
 
 interface FooterProps {
   email?: string
-  instagramUrl?: string
   behanceUrl?: string
   linkedinUrl?: string
-}
-
-/** Instagram SVG icon */
-function InstagramIcon() {
-  return (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-      <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-    </svg>
-  )
 }
 
 /** Behance SVG icon */
@@ -53,8 +41,10 @@ function MailIcon() {
   )
 }
 
-export function Footer({ email, instagramUrl, behanceUrl, linkedinUrl }: FooterProps) {
+export function Footer({ email, behanceUrl, linkedinUrl }: FooterProps) {
   const contactEmail = email ?? 'shaikhsajid3046@gmail.com'
+  const behance = behanceUrl ?? 'https://www.behance.net/sajidshaikh83'
+  const linkedin = linkedinUrl ?? 'https://www.linkedin.com/in/sajid-shaikh-13b528416/'
 
   return (
     <footer id="contact" style={{ backgroundColor: 'var(--black)' }}>
@@ -72,22 +62,9 @@ export function Footer({ email, instagramUrl, behanceUrl, linkedinUrl }: FooterP
 
         {/* Social links with icons */}
         <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
-          {instagramUrl && (
+          {behance && (
             <a
-              href={instagramUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-label text-muted swap-btn flex items-center gap-1.5"
-              aria-label="Instagram"
-            >
-              <InstagramIcon />
-              <span className="swap-btn__text">Instagram</span>
-              <span className="swap-btn__clone" aria-hidden="true">Instagram</span>
-            </a>
-          )}
-          {behanceUrl && (
-            <a
-              href={behanceUrl}
+              href={behance}
               target="_blank"
               rel="noopener noreferrer"
               className="text-label text-muted swap-btn flex items-center gap-1.5"
@@ -98,9 +75,9 @@ export function Footer({ email, instagramUrl, behanceUrl, linkedinUrl }: FooterP
               <span className="swap-btn__clone" aria-hidden="true">Behance</span>
             </a>
           )}
-          {linkedinUrl && (
+          {linkedin && (
             <a
-              href={linkedinUrl}
+              href={linkedin}
               target="_blank"
               rel="noopener noreferrer"
               className="text-label text-muted swap-btn flex items-center gap-1.5"

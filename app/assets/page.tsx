@@ -23,7 +23,6 @@ export default async function AssetsPage() {
 
       <Footer
         email={settings.email}
-        instagramUrl={settings.instagramUrl}
         behanceUrl={settings.behanceUrl}
         linkedinUrl={settings.linkedinUrl}
       />

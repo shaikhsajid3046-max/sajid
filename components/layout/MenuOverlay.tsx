@@ -12,7 +12,6 @@ const NAV_LINKS = [
 ]
 
 interface SocialUrls {
-  instagramUrl?: string
   behanceUrl?: string
   linkedinUrl?: string
 }
@@ -64,9 +63,8 @@ export function MenuOverlay({ open, onClose, socialUrls }: MenuOverlayProps) {
   }, [open])
 
   const socials = [
-    { label: 'Instagram', url: socialUrls?.instagramUrl ?? 'https://instagram.com' },
-    { label: 'Behance', url: socialUrls?.behanceUrl ?? 'https://behance.net' },
-    { label: 'LinkedIn', url: socialUrls?.linkedinUrl ?? 'https://linkedin.com' },
+    { label: 'Behance', url: socialUrls?.behanceUrl ?? 'https://www.behance.net/sajidshaikh83' },
+    { label: 'LinkedIn', url: socialUrls?.linkedinUrl ?? 'https://www.linkedin.com/in/sajid-shaikh-13b528416/' },
   ]
 
   return (
@@ -104,13 +102,13 @@ export function MenuOverlay({ open, onClose, socialUrls }: MenuOverlayProps) {
       </div>
 
       {/* Links */}
-      <ul ref={linksRef} className="flex flex-col gap-4 overflow-hidden">
+      <ul ref={linksRef} className="flex flex-col gap-3 sm:gap-4 overflow-hidden my-auto">
         {NAV_LINKS.map(({ href, label }) => (
           <li key={href} style={{ overflow: 'hidden' }}>
             <Link
               href={href}
               onClick={onClose}
-              className="text-display-lg block font-display leading-none"
+              className="text-3xl sm:text-5xl md:text-6xl lg:text-display-lg block font-display leading-none hover:text-[var(--accent)] transition-colors duration-200 py-1"
               style={{ color: 'var(--white)' }}
             >
               {label}
@@ -120,7 +118,7 @@ export function MenuOverlay({ open, onClose, socialUrls }: MenuOverlayProps) {
       </ul>
 
       {/* Social */}
-      <div className="flex gap-6">
+      <div className="flex flex-wrap gap-4 sm:gap-6 pt-4">
         {socials.map(({ label, url }) => (
           <a
             key={label}

@@ -44,18 +44,6 @@ export default async function ContactPage() {
 
         {/* Social links */}
         <div className="flex flex-wrap gap-x-8 gap-y-4">
-          {settings.instagramUrl && (
-            <a
-              href={settings.instagramUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-label swap-btn"
-              style={{ color: 'var(--muted)' }}
-            >
-              <span className="swap-btn__text">Instagram</span>
-              <span className="swap-btn__clone" aria-hidden="true">Instagram</span>
-            </a>
-          )}
           {settings.behanceUrl && (
             <a
               href={settings.behanceUrl}
@@ -85,7 +73,6 @@ export default async function ContactPage() {
 
       <Footer
         email={settings.email}
-        instagramUrl={settings.instagramUrl}
         behanceUrl={settings.behanceUrl}
         linkedinUrl={settings.linkedinUrl}
       />

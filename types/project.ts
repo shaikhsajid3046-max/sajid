@@ -46,7 +46,6 @@ export interface SiteSettings {
   portraitImageUrl?: string
   cvFileUrl?: string
   email?: string
-  instagramUrl?: string
   behanceUrl?: string
   linkedinUrl?: string
   clientLogos?: { name: string; logoUrl: string }[]
